@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct ToDoUsingCoreDataDemoApp: App {
+    
+    let provider = CoreDataProvider()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                ContentView()
+                    .environment(\.managedObjectContext, provider.viewContext )
+            }
+                
         }
     }
 }
